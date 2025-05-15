@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Base Training</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo" onclick="showPage('home')">Hardware Base Training</a>
+            <ul class="nav-links">
+              <li><a href="#" onclick="showPage('home')">Home</a></li>
+              <li><a href="#" onclick="showPage('about')">About</a></li>
+              <li><a href="#" onclick="showPage('components')">Components</a></li>
+              <li><a href="https://forms.gle/YOUR_FORM_LINK" target="_blank" class="btn-try">Try Now</a></li>
+            </ul>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HOME PAGE ===== -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Learn Electronics & Microcontrollers</h1>
+                <p>A hands-on training platform for beginners and hobbyists.</p>
+                <a href="#" onclick="showPage('components')" class="btn">Explore Components</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>What You'll Learn</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Microcontrollers</h3>
+                        <p>ESP32, Arduino Uno, and more.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>Sensors & Modules</h3>
+                        <p>DHT11, PIR, Ultrasonic, and more.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Example Codes</h3>
+                        <p>Ready-to-use Arduino & ESP32 sketches.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== ABOUT PAGE ===== -->
+    <div id="about" class="page">
+        <section class="about" style="padding-top: 100px;">
+            <div class="container">
+                <h1 style="text-align: center; margin-bottom: 40px;">About This Project</h1>
+                
+                <div class="about-content">
+                    <h2>Project Description</h2>
+                    <p>Hardware Base Training is a comprehensive learning platform designed to bridge the gap between theoretical electronics knowledge and practical implementation. This project provides hands-on experience with microcontrollers, sensors, and other electronic components through carefull curated tutorials, wiring diagrams, and real-world projects.</p>
+                    
+                    <h2>Objectives</h2>
+                    <ul>
+                        <li>Provide accessible learning materials for electronics enthusiasts</li>
+                        <li>Foster the creative minds through interactive applications</li>
+                        <li>Offer wiring diagrams and sample codes for common components</li>
+                        <li>Create a centralized knowledge base for IoT and hardware prototyping</li>
+                    </ul>
+                    
+                    <h2>Features</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+                        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h3><i class="fas fa-project-diagram" style="color: var(--primary);"></i> Structured Learning</h3>
+                            <p>Step-by-step guides from basic to advanced concepts</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h3><i class="fas fa-code" style="color: var(--primary);"></i> Practical Examples</h3>
+                            <p>Ready-to-use code snippets for quick implementation</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h3><i class="fas fa-lightbulb" style="color: var(--primary);"></i> Practical Project</h3>
+                            <p>Real-world applications to reinforce your learning.</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h3><i class="fas fa-book" style="color: var(--primary);"></i> Comprehensive Documents</h3>
+                            <p>Detailed documentation for all components.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== COMPONENTS PAGE SECTION ===== -->
+    <div id="components" class="page">
+        <div class="container">
+            <div class="components-header">
+                <h1>Electronic Components</h1>
+                <p>Explore microcontrollers, sensors, and modules with wiring diagrams and example codes</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="component-search" placeholder="Search components..." onkeyup="searchComponents()">
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab('microcontrollers')">Microcontrollers</button>
+                <button class="tab-btn" onclick="openTab('sensors')">Sensors</button>
+                <button class="tab-btn" onclick="openTab('displays')">Displays</button>
+                <button class="tab-btn" onclick="openTab('output')">Output Devices</button>
+                <button class="tab-btn" onclick="openTab('other')">Other Components</button>
+            </div>
+
+            <!-- Microcontrollers Tab -->
+            <div id="microcontrollers" class="tab-content active">
+                <div class="category-section">
+                    <h2 class="category-title">Microcontrollers</h2>
+                    <div class="components-grid">
+                        <!-- ESP32 -->
+                        <div class="component-card" onclick="openModal('esp32-modal')">
+                            <img src="compage/esp32.png" alt="ESP32" class="component-img">
+                            <div class="component-info">
+                                <h3>ESP32</h3>
+                                <p>Dual-core microcontroller with WiFi/Bluetooth</p>
+                            </div>
+                        </div>
+
+                        <!-- Arduino Uno -->
+                        <div class="component-card" onclick="openModal('arduino-modal')">
+                            <img src="compage/arduino.png" alt="Arduino Uno" class="component-img">
+                            <div class="component-info">
+                                <h3>Arduino Uno</h3>
+                                <p>ATmega328P-based development board</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sensors Tab -->
+            <div id="sensors" class="tab-content">
+                <div class="category-section">
+                    <h2 class="category-title">Sensors</h2>
+                    <div class="components-grid">
+                        <!-- DHT11 -->
+                        <div class="component-card" onclick="openModal('dht11-modal')">
+                            <img src="compage/dht11.jpg" alt="DHT11" class="component-img">
+                            <div class="component-info">
+                                <h3>DHT11</h3>
+                                <p>Temperature and humidity sensor</p>
+                            </div>
+                        </div>
+
+                        <!-- PIR -->
+                        <div class="component-card" onclick="openModal('pir-modal')">
+                            <img src="compage/pir.jpg" alt="PIR Sensor" class="component-img">
+                            <div class="component-info">
+                                <h3>PIR Sensor</h3>
+                                <p>Passive infrared motion detector</p>
+                            </div>
+                        </div>
+
+                        <!-- Ultrasonic -->
+                        <div class="component-card" onclick="openModal('ultrasonic-modal')">
+                            <img src="compage/uds.jpg" alt="Ultrasonic Sensor" class="component-img">
+                            <div class="component-info">
+                                <h3>Ultrasonic Sensor (UDS)</h3>
+                                <p>HC-SR04 distance measurement</p>
+                            </div>
+                        </div>
+
+                        <!-- Flame Sensor -->
+                        <div class="component-card" onclick="openModal('flame-modal')">
+                            <img src="compage/flame.jpg" alt="Flame Sensor" class="component-img">
+                            <div class="component-info">
+                                <h3>Flame Sensor</h3>
+                                <p>Infrared flame detection</p>
+                            </div>
+                        </div>
+
+                        <!-- LDR -->
+                        <div class="component-card" onclick="openModal('ldr-modal')">
+                            <img src="compage/ldr.jpg" alt="LDR Sensor" class="component-img">
+                            <div class="component-info">
+                                <h3>LDR</h3>
+                                <p>Light Dependent Resistor</p>
+                            </div>
+                        </div>
+
+                        <!-- Sound Sensor -->
+                        <div class="component-card" onclick="openModal('sound-modal')">
+                            <img src="compage/sound.jpg" alt="Sound Sensor" class="component-img">
+                            <div class="component-info">
+                                <h3>Sound Sensor</h3>
+                                <p>LM393-based sound detection</p>
+                            </div>
+                        </div>
+
+                        <!-- MQ-2 -->
+                        <div class="component-card" onclick="openModal('mq2-modal')">
+                            <img src="compage/gas.png" alt="MQ-2 Sensor" class="component-img">
+                            <div class="component-info">
+                                <h3>MQ-2 Gas Sensor</h3>
+                                <p>Detects LPG, smoke, alcohol</p>
+                            </div>
+                        </div>
+
+                        <!-- Water Sensor -->
+                        <div class="component-card" onclick="openModal('water-modal')">
+                            <img src="compage/water.jpg" alt="Water Sensor" class="component-img">
+                            <div class="component-info">
+                                <h3>Water Sensor</h3>
+                                <p>Liquid detection</p>
+                            </div>
+                        </div>
+
+                        <!-- IR Sensor -->
+                        <div class="component-card" onclick="openModal('ir-modal')">
+                            <img src="compage/ir.jpg" alt="IR Sensor" class="component-img">
+                            <div class="component-info">
+                                <h3>IR Sensor</h3>
+                                <p>Infrared obstacle detection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Displays Tab -->
+            <div id="displays" class="tab-content">
+                <div class="category-section">
+                    <h2 class="category-title">Displays</h2>
+                    <div class="components-grid">
+                        <!-- LCD I2C -->
+                        <div class="component-card" onclick="openModal('lcd-modal')">
+                            <img src="compage/lcd.jpg" alt="LCD I2C" class="component-img">
+                            <div class="component-info">
+                                <h3>LCD I2C Display</h3>
+                                <p>16x2 character display</p>
+                            </div>
+                        </div>
+
+                        <!-- OLED -->
+                        <div class="component-card" onclick="openModal('oled-modal')">
+                            <img src="compage/tft.png" alt="OLED Display" class="component-img">
+                            <div class="component-info">
+                                <h3>OLED TFT</h3>
+                                <p>128x64 pixel display</p>
+                            </div>
+                        </div>
+
+                        <!-- LED Matrix -->
+                        <div class="component-card" onclick="openModal('matrix-modal')">
+                            <img src="compage/matrix.jpg" alt="LED Matrix" class="component-img">
+                            <div class="component-info">
+                                <h3>LED Matrix 8x8x4</h3>
+                                <p>32x8 LED dot matrix</p>
+                            </div>
+                        </div>
+
+                        <!-- 7-Segment Single -->
+                        <div class="component-card" onclick="openModal('7seg1-modal')">
+                            <img src="compage/7seg.jpg" alt="7-Segment" class="component-img">
+                            <div class="component-info">
+                                <h3>7-Segment (1-digit)</h3>
+                                <p>Single digit display</p>
+                            </div>
+                        </div>
+
+                        <!-- 7-Segment 4-digit -->
+                        <div class="component-card" onclick="openModal('7seg4-modal')">
+                            <img src="compage/4dig7seg.jpg" alt="4-Digit 7-Segment" class="component-img">
+                            <div class="component-info">
+                                <h3>7-Segment (4-digit)</h3>
+                                <p>4-digit display with colon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output Devices Tab -->
+            <div id="output" class="tab-content">
+                <div class="category-section">
+                    <h2 class="category-title">Output Devices</h2>
+                    <div class="components-grid">
+                        <!-- Servo -->
+                        <div class="component-card" onclick="openModal('servo-modal')">
+                            <img src="compage/sg90.png" alt="Servo Motor" class="component-img">
+                            <div class="component-info">
+                                <h3>Servo SG-90</h3>
+                                <p>9g micro servo (180° rotation)</p>
+                            </div>
+                        </div>
+
+                        <!-- Relay -->
+                        <div class="component-card" onclick="openModal('relay-modal')">
+                            <img src="compage/relay.jpg" alt="Relay" class="component-img">
+                            <div class="component-info">
+                                <h3>Relay Module</h3>
+                                <p>5V electromechanical switch</p>
+                            </div>
+                        </div>
+
+                        <!-- Buzzer -->
+                        <div class="component-card" onclick="openModal('buzzer-modal')">
+                            <img src="compage/piezo.jpg" alt="Buzzer" class="component-img">
+                            <div class="component-info">
+                                <h3>Piezo Buzzer</h3>
+                                <p>3-5V audible indicator</p>
+                            </div>
+                        </div>
+
+                        <!-- RGB Module -->
+                        <div class="component-card" onclick="openModal('rgb-modal')">
+                            <img src="compage/rgb.jpg" alt="RGB LED" class="component-img">
+                            <div class="component-info">
+                                <h3>RGB Module</h3>
+                                <p>Common cathode/anode RGB LED</p>
+                            </div>
+                        </div>
+
+                        <!-- LED -->
+                        <div class="component-card" onclick="openModal('led-modal')">
+                            <img src="compage/led.jpg" alt="LED" class="component-img">
+                            <div class="component-info">
+                                <h3>LED</h3>
+                                <p>Standard 5mm LED</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Components Tab -->
+            <div id="other" class="tab-content">
+                <div class="category-section">
+                    <h2 class="category-title">Other Components</h2>
+                    <div class="components-grid">
+                        <!-- Buttons -->
+                        <div class="component-card" onclick="openModal('button-modal')">
+                            <img src="compage/button.jpg" alt="Button" class="component-img">
+                            <div class="component-info">
+                                <h3>Tactile Buttons</h3>
+                                <p>Momentary push buttons</p>
+                            </div>
+                        </div>
+
+                        <!-- Potentiometer -->
+                        <div class="component-card" onclick="openModal('pot-modal')">
+                            <img src="compage/potentiometer.jpg" alt="Potentiometer" class="component-img">
+                            <div class="component-info">
+                                <h3>Potentiometer</h3>
+                                <p>10KΩ variable resistor</p>
+                            </div>
+                        </div>
+
+                        <!-- IR Receiver -->
+                        <div class="component-card" onclick="openModal('irr-modal')">
+                            <img src="compage/irr.jpg" alt="IR Receiver" class="component-img">
+                            <div class="component-info">
+                                <h3>IR Receiver</h3>
+                                <p>KY-022 infrared receiver</p>
+                            </div>
+                        </div>
+
+                        <!-- Stepper Motor -->
+                         <div class="component-card" onclick="openModal('motor-modal')">
+                            <img src="compage/motor.png" alt="Stepper Motor" class="component-img">
+                            <div class="component-info">
+                                <h3>Stepper Motor</h3>
+                                <p>DC Motor that moves in discrete, precise steps.</p>
+                            </div>
+                         </div>
+
+                        <!-- RTC -->
+                        <div class="component-card" onclick="openModal('rtc-modal')">
+                            <img src="compage/rtc.jpg" alt="RTC Module" class="component-img">
+                            <div class="component-info">
+                                <h3>RTC Module</h3>
+                                <p>DS1302 real-time clock</p>
+                            </div>
+                        </div>
+
+                        <!-- Header Pins -->
+                        <div class="component-card" onclick="openModal('header-modal')">
+                            <img src="compage/header.jpg" alt="Header Pins" class="component-img">
+                            <div class="component-info">
+                                <h3>Header Pins</h3>
+                                <p>Male/female connectors</p>
+                            </div>
+                        </div>
+
+                        <!-- Jumper Wires -->
+                        <div class="component-card" onclick="openModal('jumper-modal')">
+                            <img src="compage/jump.jpg" alt="Jumper Wires" class="component-img">
+                            <div class="component-info">
+                                <h3>Jumper Wires</h3>
+                                <p>M-M, F-F, M-F varieties</p>
+                            </div>
+                        </div>
+
+                        <!-- FreeRTOS -->
+                         <div class="component-card" onclick="openModal('rtos-modal')">
+                            <img src="compage/rtos.png" alt="FreeRTOS" class="component-img">
+                            <div class="component-info">
+                                <h3>FreeRTOS</h3>
+                                <p>An Open-Source Real-Time Operating System used in Embedded System</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL WINDOWS FOR ALL COMPONENTS ===== -->
+    <!-- DHT11 Modal -->
+    <div id="dht11-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>DHT11 Sensor</h2>
+            <img src="schema/DHT11-wire.jpg" alt="DHT11 Wiring" class="modal-img">
+            
+            <h3>Description</h3>
+            <p>Digital temperature and humidity sensor with 1Hz sampling rate. Accuracy ±2°C and ±5% RH.</p>
+            
+            <h3>Wiring</h3>
+            <ul>
+                <li>VCC → 3.3V/5V</li>
+                <li>DATA → Digital Pin</li>
+                <li>GND → GND</li>
+            </ul>
+            
+            <h3>Example Code</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre>#include &lt;DHT.h&gt;
+#define DHTPIN 2
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  Serial.print("Humidity: "); Serial.print(h);
+  Serial.print("% Temperature: "); Serial.print(t); Serial.println("°C");
+  delay(2000);
+}</pre>
+
+        <div class="activity-section">
+            <h3>Activity Challenge</h3>
+            <div id="dht11-activity" class="activity-content"></div>
+            <button class="btn-generate" onclick="generateActivity('dht11')">Generate Activity</button>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIR Modal -->
+    <div id="pir-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>PIR Motion Sensor</h2>
+            <img src="schema/PIRR.png" alt="PIR Wiring" class="modal-img">
+            
+            <h3>Description</h3>
+            <p>Passive infrared sensor detects movement up to 6 meters. Adjustable sensitivity and delay time.</p>
+            
+            <h3>Example Code</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre>int pirPin = 2;
+int ledPin = 13;
+
+void setup() {
+  pinMode(pirPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if(digitalRead(pirPin) == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    delay(1000);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+}</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="pir-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('pir')">Generate Activity</button>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ultrasonic Sensor Modal -->
+    <div id="ultrasonic-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Ultrasonic Sensor (HC-SR04)</h2>
+            <img src="schema/UDSS.png" alt="Ultrasonic Wiring" class="modal-img">
+            
+            <h3>Description</h3>
+            <p>Measures distance from 2cm to 400cm with 3mm accuracy. Uses sound waves to determine distance.</p>
+            
+            <h3>Example Code</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre>const int trigPin = 9;
+const int echoPin = 10;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  long duration = pulseIn(echoPin, HIGH);
+  int distance = duration * 0.034 / 2;
+  
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+  delay(100);
+}</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="ultrasonic-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('ultrasonic')">Generate Activity</button>
+</div>
+            </div>
+        </div>
+    </div>
+<!-- ESP32 -->
+<div id="esp32-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2> ESP32 </h2>
+        <img src="schema/ESP32-pin.png" alt="ESP32 Board" class="modal-img">
+
+        <h3>Description</h3>
+        <p>ESP32 is a low-cost, low-power system on a chip (SoC) with integrated Wi-Fi and Bluetooth capabilities. Designed by Espressif Systems, it’s popular for IoT, smart home, and embedded projects due to its dual-core processor, rich set of peripherals, and flexible development support.</p>
+        <h3>Requirements for using ESP32:</h3>
+        <p>1. ESP32 development board<br>2. Micro USB cable Micro and type C<br>3. Personal computer/laptop<br>4. Internet connection<br>5. Arduino IDE Software<br> </p>
+        <h3>Procedure</h3>
+        <Pre>
+           Step 1: Install Arduino IDE
+              1. Go to Arduino’s official download page.
+              2. Download the Arduino IDE for your OS (Windows/macOS/Linux).
+              3. Run the installer and follow the setup instructions.
+           Step 2: Add ESP32 Support in Arduino IDE
+              1. Open the Arduino IDE.
+              2. Navigate to:
+                * Windows/Linux: File > Preferences
+                * macOS: Arduino > Preferences
+              3. In the "Additional Boards Manager URLs" field, paste:
+                   https://dl.espressif.com/dl/package_esp32_index.json
+              4. Click OK to save.
+           Step 3: Install ESP32 Board Package
+              1. Go to: Tools > Board > Boards Manager...
+              2. Search for "ESP32".
+              3. Select "ESP32 by Espressif Systems" and click Install.
+              4. Wait for the installation to complete.
+           Step 4: Select the Correct ESP32 Board
+              1. After installation, go to: Tools > Board
+              2. Choose your ESP32 board (e.g., "ESP32 Dev Module").
+           Step 5: Connect the ESP32 to Your Computer
+              1. Use a Micro-USB cable to connect the ESP32 to your PC.
+              2. Go to: Tools > Port
+              3. Select the COM port assigned to the ESP32 (e.g., COM3 or /dev/cu.usbserial-XXXX).
+           Step 6: Upload and Test "Hello, World!"
+              1. Open a new sketch (File > New).
+              2. Copy and paste the following code bellow:  
+        </Pre>
+        <h3>Sample code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+            <pre>void setup() {
+                Serial.begin(9600);
+            }
+            void loop() {
+                Serial.println("Hello World!");
+                delay(1000);
+            }
+            </pre>
+        </div>
+        <pre>
+              3. Click the Upload (→) button to flash the code to the ESP32.
+              4. Once uploaded, open the Serial Monitor (Ctrl+Shift+M or the magnifying glass icon).
+              5. Set the baud rate to 115200.
+              6. If successful, you should see: "Hello World!"   
+        </pre>
+        <h3>Troubleshooting</h3>
+        <pre>
+           1. No COM port detected?
+              * Reconnect the USB cable or install CP210x/CH340 drivers (if needed).
+           2. Upload fails?
+              * Hold the BOOT button on the ESP32 while uploading.
+           3. No output in Serial Monitor?
+              * Check baud rate (115200) and ensure the correct COM port is selected.
+        </pre>
+    </div>
+</div>
+
+<!-- Arduino Uno -->
+<div id="arduino-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Arduino Uno</h2>
+        <img src="schema/ARDUINO-pin.jpg" alt="Arduino Board" class="modal-img">
+
+        <h3>Description</h3>
+        <p>Arduino Uno is an easy-to-use, open-source microcontroller board based on the ATmega328P. It’s popular for beginners and makers, ideal for DIY electronics, prototyping, and interactive projects.</p>
+        <h3>Requirements for using Arduino Uno:</h3>
+        <p>1. Arduino Uno development board<br>2. Micro USB cable Micro and type C<br>3. Personal computer/laptop<br>4. Internet connection<br>5. Arduino IDE Software</p>
+        <h3>Procedure to Use Arduino Uno</h3>
+        <pre>
+           Step 1: Install Arduino IDE
+              1. Go to Arduino’s official download page.
+              2. Download the Arduino IDE for your OS (Windows/macOS/Linux).
+              3. Run the installer and follow the setup instructions.
+           Step 2: Install Arduino Uno Drivers (Windows Only)
+              1. Connect the Arduino Uno to your PC via USB cable.
+              2. Wait for Windows to attempt driver installation (may fail automatically).
+              3. Open Device Manager (Right-click Start Menu > Device Manager).
+              4. Under Ports (COM & LPT), look for "Unknown Device" or "Arduino Uno".
+              5. Right-click > Update Driver > Browse for driver software:
+                 * Navigate to the Arduino IDE installation folder (e.g., C:\Program Files (x86)\Arduino\drivers).
+                 * Select Arduino.inf and complete installation.
+           Step 3: Select Arduino Uno Board
+               1. Open Arduino IDE.
+               2. Go to: Tools > Board > Arduino AVR Boards > Arduino Uno.
+           Step 4: Select the Correct Port
+               1. Go to: Tools > Port.
+               2. Choose the COM port assigned to Arduino Uno (e.g., COM3 or /dev/cu.usbmodemXXXX).
+           Step 5: Upload and Test "Blink" Example
+               1. Open the built-in example: File > Examples > 01.Basics > Blink.
+               2. Verify the code (checkmark icon) to ensure no errors.
+               3. Click Upload (→ icon) to flash the code to the Uno.
+               4. Observe the onboard LED (pin 13) blinking every second.
+        <h3>Sample code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre>// Define the LED pin
+        const int ledPin = 13;
+        void setup() {
+            // Set the LED pin as an output
+            pinMode(ledPin, OUTPUT);
+        }
+        void loop() {
+            // Turn the LED on
+            digitalWrite(ledPin, HIGH);
+            delay(1000); // Wait for 1 second
+
+            // Turn the LED off
+            digitalWrite(ledPin, LOW);
+            delay(1000); // Wait for 1 second
+        }
+        </pre>
+        </div> 
+        <h3>Troubleshooting</h3>
+        <pre>
+           1. Upload fails?
+              * Ensure correct board and port are selected.
+              * Press the reset button on the Uno just before uploading.
+           2. LED not blinking?
+              * Check USB cable connection.
+              * Test with another USB port or cable.
+        </pre>      
+    </div>
+</div>
+
+<!-- Flame Sensor -->
+ <div id="flame-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2> Flame Sensor </h2>
+        <img src="schema/flame 2.jpg" alt="Flame Sensor Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>A flame sensor is a device that detects the presence of a flame or fire. It typically works by sensing infrared light emitted by a flame. It’s commonly used in fire detection systems, safety equipment, and some robotics projects to detect fire hazards.</p>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+int flameSensorPin = A0; 
+int flameValue = 0;
+
+void setup() {
+  Serial.begin(9600); 
+  pinMode(flameSensorPin, INPUT);
+}
+
+void loop() {
+  flameValue = analogRead(flameSensorPin);  
+
+  if (flameValue &lt; 100) { 
+    Serial.println("Flame detected!");
+  } else {
+    Serial.println("No flame.");
+  }
+
+  delay(500);  
+}
+            </pre>
+            <div class="activity-section">
+                <h3>Activity Challenge</h3>
+                <div id="flame-activity" class="activity-content"></div>
+                <button class="btn-generate" onclick="generateActivity('flame')">Generate Activity</button>
+            </div>
+        </div>
+
+    </div>
+ </div>
+
+ <!-- LDR Modal with Wiring -->
+<div id="ldr-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>LDR (Light Dependent Resistor)</h2>
+        <img src="schema/esp32-light-sensor.jpg" alt="LDR Wiring" class="modal-img">
+        
+        <h3>Description</h3>
+        <p>A photoresistor whose resistance decreases with increasing incident light intensity. Used in light sensing applications.</p>
+        
+        <h3>Wiring</h3>
+        <ul>
+            <li>LDR leg 1 → 5V</li>
+            <li>LDR leg 2 → Analog Pin </li>
+            <li>10KΩ resistor between LDR leg 2 and GND</li>
+        </ul>
+        
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>int ldrPin = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int ldrValue = analogRead(ldrPin);
+  Serial.print("Light level: ");
+  Serial.println(ldrValue);
+  delay(500);
+}</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="ldr-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('ldr')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- Sound Sensor Modal with Wiring -->
+<div id="sound-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Sound Sensor (LM393)</h2>
+        <img src="schema/sound esp.jpg" alt="Sound Sensor Wiring" class="modal-img">
+        
+        <h3>Description</h3>
+        <p>Detects sound levels with adjustable sensitivity. Outputs both analog and digital signals.</p>
+        
+        <h3>Wiring</h3>
+        <ul>
+            <li>VCC → 5V</li>
+            <li>GND → GND</li>
+            <li>OUT → Digital Pin for digital output</li>
+            <li>A0 → Analog Pin for analog output</li>
+        </ul>
+        
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>int soundPin = A0;
+int threshold = 500; // Adjust based on sensitivity
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int soundValue = analogRead(soundPin);
+  if(soundValue > threshold) {
+    Serial.println("Loud sound detected!");
+  }
+  delay(100);
+}</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="sound-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('sound')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- LCD I2C Modal with Wiring -->
+<div id="lcd-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>LCD I2C Display (16x2)</h2>
+        <img src="schema/lcd esp.png" alt="LCD I2C Wiring" class="modal-img">
+        
+        <h3>Description</h3>
+        <p>16 character x 2 line display with I2C interface. Requires LiquidCrystal_I2C library.</p>
+        
+        <h3>Wiring</h3>
+        <ul>
+            <li>GND → GND</li>
+            <li>VCC → 5V</li>
+            <li>SDA → SDA (A4 on Uno)</li>
+            <li>SCL → SCL (A5 on Uno)</li>
+        </ul>
+        
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2); // Address may vary
+
+void setup() {
+  lcd.init();
+  lcd.backlight();
+  lcd.print("Hello, world!");
+}
+
+void loop() {
+  lcd.setCursor(0, 1);
+  lcd.print(millis() / 1000);
+  delay(100);
+}</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="lcd-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('lcd')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- Servo Modal with Wiring -->
+<div id="servo-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Servo Motor (SG-90)</h2>
+        <img src="schema/servo esp.jpg" alt="Servo Wiring" class="modal-img">
+        
+        <h3>Description</h3>
+        <p>Small 9g servo motor with 180° rotation. Controlled with PWM signals.</p>
+        
+        <h3>Wiring</h3>
+        <ul>
+            <li>Brown wire → GND</li>
+            <li>Red wire → 5V</li>
+            <li>Orange/Yellow wire → PWM Pin (e.g., D9)</li>
+        </ul>
+        
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>#include &lt;Servo.h&gt;
+
+Servo myservo;
+int pos = 0;
+
+void setup() {
+  myservo.attach(9); // PWM pin
+}
+
+void loop() {
+  for(pos = 0; pos &lt;= 180; pos++) {
+    myservo.write(pos);
+    delay(15);
+  }
+  for(pos = 180; pos >= 0; pos--) {
+    myservo.write(pos);
+    delay(15);
+  }
+}</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="servo-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('servo')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- Relay Modal with Wiring -->
+<div id="relay-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Relay Module</h2>
+        <img src="schema/relaywire.jpg" alt="Relay Wiring" class="modal-img">
+        
+        <h3>Description</h3>
+        <p>5V electromechanical relay capable of switching higher voltage/current circuits. Has NO/NC contacts.</p>
+        
+        <h3>Wiring</h3>
+        <ul>
+            <li>VCC → 5V</li>
+            <li>GND → GND</li>
+            <li>IN → Digital Pin (e.g., D2)</li>
+            <li>NO/COM/NC → Load connections</li>
+        </ul>
+              
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>int relayPin = 2;
+
+void setup() {
+  pinMode(relayPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(relayPin, HIGH); // Turn on
+  delay(2000);
+  digitalWrite(relayPin, LOW);  // Turn off
+  delay(2000);
+}</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="relay-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('relay')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- RGB LED Modal with Wiring -->
+<div id="rgb-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>RGB LED Module</h2>
+        <img src="schema/rgb esp.jpg" alt="RGB LED Wiring" class="modal-img">
+        
+        <h3>Description</h3>
+        <p>Combination of red, green and blue LEDs in one package. Can be common anode or cathode.</p>
+        
+        <h3>Wiring (Common Cathode)</h3>
+        <ul>
+            <li>Red → PWM Pin (e.g., D9) with 220Ω resistor</li>
+            <li>Green → PWM Pin (e.g., D10) with 220Ω resistor</li>
+            <li>Blue → PWM Pin (e.g., D11) with 220Ω resistor</li>
+            <li>Cathode → GND</li>
+        </ul>
+                
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>int redPin = 9;
+int greenPin = 10;
+int bluePin = 11;
+
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+
+void setColor(int r, int g, int b) {
+  analogWrite(redPin, r);
+  analogWrite(greenPin, g);
+  analogWrite(bluePin, b);
+}
+
+void loop() {
+  setColor(255, 0, 0); // Red
+  delay(1000);
+  setColor(0, 255, 0); // Green
+  delay(1000);
+  setColor(0, 0, 255); // Blue
+  delay(1000);
+}</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="rgb-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('rgb')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- GAS Sensor MQ-2 -->
+ <div id="mq2-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Gas Sensor (MQ-2)</h2>
+        <img src="schema/gaswire.jpg" alt="MQ-2 Gas Sensor Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>The MQ-2 Gas Sensor detects gases like LPG, methane, hydrogen, and smoke in the air. It can work in both analog and digital modes. In digital mode, the sensor outputs HIGH (1) or LOW (0) based on a set threshold, which you can adjust using the onboard potentiometer.</p>
+        
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>int gasSensorPin = 2;  
+int gasState = 0;
+
+void setup() {
+  Serial.begin(9600);     
+  pinMode(gasSensorPin, INPUT);
+}
+
+void loop() {
+  gasState = digitalRead(gasSensorPin); 
+
+  if (gasState == LOW) {  
+    Serial.println("Gas detected!");
+  } else {
+    Serial.println("Air is clean.");
+  }
+
+  delay(500);  // Wait half a second before next check
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="gas-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('gas')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+ </div>
+
+ <!-- IR Sensor -->
+<div id="ir-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Infrared Sensor</h2>
+        <img src="schema/irfinal.jpg" alt="IR Sensor Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>An IR (Infrared) Sensor is used to detect the presence of an object or obstacle in front of it by emitting infrared light and measuring the reflection.</p>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>int irSensorPin = 13;
+int irValue = 0;
+
+void setup() {
+  Serial.begin(115200);    
+  pinMode(irSensorPin, INPUT);
+}
+
+void loop() {
+  irValue = digitalRead(irSensorPin);  
+
+  if (irValue == LOW) {  
+    Serial.println("Object detected!");
+  } else {
+    Serial.println("No object.");
+  }
+
+  delay(500);  
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="ir-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('ir')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>  
+
+<!-- TFT OLED Display ST7789 -->
+ <div id="oled-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>TFT Display (ST7789)</h2>
+        <img src="schema/oled.png" alt="OLED TFT Display Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>The ST7789 is a 1.3" or 1.54" SPI-based full-color TFT display (usually 240×240 or 240×320 resolution). It uses the ST7789 controller and connects via the SPI protocol. It can display text, shapes, and images. Popular for IoT screens, smart displays, or status dashboards.</p>
+
+        <h3>Wiring</h3>
+        <ul>
+            <li>VCC → 3.3V</li>
+            <li>GND → GND</li>
+            <li>SCL (Clock) → Digital Pin</li>
+            <li>SDA (Data) → Digital Pin</li>
+            <li>RES (Reset) → Digital Pin</li>
+            <li>DC (Data/Command) → Digital Pin</li>
+            <li>BLK (Backlight) → 3.3V</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_ST7789.h&gt;
+#include &lt;SPI.h&gt;
+
+// Define pins
+#define TFT_CS     -1    // Not used (some displays tie CS to GND)
+#define TFT_RST    4
+#define TFT_DC     2
+
+// Create display object
+Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
+
+void setup() {
+  Serial.begin(115200);
+  tft.init(240, 240);    // Initialize with 240x240 resolution
+  tft.setRotation(0);
+  tft.fillScreen(ST77XX_BLACK);
+
+  tft.setTextColor(ST77XX_GREEN);
+  tft.setTextSize(2);
+  tft.setCursor(20, 50);
+  tft.print("Hello ESP32!");
+}
+
+void loop() {
+  // Nothing here for now
+}
+            </pre>
+            <div class="activity-section">
+                <h3>Activity Challenge</h3>
+                <div id="tft-activity" class="activity-content"></div>
+                <button class="btn-generate" onclick="generateActivity('tft')">Generate Activity</button>
+            </div>
+        </div>
+    </div>
+ </div>
+
+ <!-- 4Digits 7Segment-->
+<div id="7seg4-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>4Digits 7Segment</h2>
+        <img src="schema/4DIG7SEG-wire.png" alt="4Digit 7Segment Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>The HSN-5641BS is a 4-digit 7-segment display module commonly used for showing numeric values like time, temperature, or sensor readings.</p>
+
+        <h3>Wiring</h3>
+        <ul>
+            <li>A → Digital Pins</li>
+            <li>B → Digital Pins</li>
+            <li>C → Digital Pins</li>
+            <li>D → Digital Pins</li>
+            <li>E → Digital Pins</li>
+            <li>F → Digital Pins</li>
+            <li>G → Digital Pins</li>
+            <li>DP → Digital Pins</li>
+            <li>DIG1 → Digital Pins</li>
+            <li>DIG2 → Digital Pins</li>
+            <li>DIG3 → Digital Pins</li>
+            <li>DIG4 → Digital Pins</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre>
+// Segment pins
+#define A 13
+#define B 12
+#define C 14
+#define D 27
+#define E 26
+#define F 25
+#define G 33
+#define DP 32
+
+// Digit select pins
+#define DIG1 23
+#define DIG2 22
+#define DIG3 21
+#define DIG4 19
+
+// Number to display on the 4 digits
+int numbers[4] = {1, 2, 3, 4};
+
+// Segment patterns for digits 0-9
+const byte digitPatterns[10] = {
+  // DP G F E D C B A  (bit order)
+  B00111111, // 0
+  B00000110, // 1
+  B01011011, // 2
+  B01001111, // 3
+  B01100110, // 4
+  B01101101, // 5
+  B01111101, // 6
+  B00000111, // 7
+  B01111111, // 8
+  B01101111  // 9
+};
+
+// Array of segment pins
+int segmentPins[] = {A, B, C, D, E, F, G, DP};
+
+// Array of digit select pins
+int digitPins[] = {DIG1, DIG2, DIG3, DIG4};
+
+void setup() {
+  // Set segment pins as OUTPUT
+  for (int i = 0; i &lt; 8; i++) {
+    pinMode(segmentPins[i], OUTPUT);
+  }
+
+  // Set digit control pins as OUTPUT
+  for (int i = 0; i &lt; 4; i++) {
+    pinMode(digitPins[i], OUTPUT);
+  }
+}
+
+void displayDigit(int digit, int value) {
+  // Disable all digits
+  for (int i = 0; i &lt; 4; i++) {
+    digitalWrite(digitPins[i], HIGH);
+  }
+
+  // Set segments for the value
+  byte pattern = digitPatterns[value];
+  for (int i = 0; i &lt; 9; i++) {
+    digitalWrite(segmentPins[i], (pattern &gt;&gt; i) &amp; 0x01);
+  }
+
+  // Enable selected digit (set LOW for common cathode)
+  digitalWrite(digitPins[digit], LOW);
+
+  delay(2); // Keep it on for 2 milliseconds
+}
+
+void loop() {
+  for (int i = 0; i &lt; 4; i++) {
+    displayDigit(i, numbers[i]);
+  }
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="foursevenseg-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('foursevenseg')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- 1Digit 7Segment -->
+ <div id="7seg1-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2> 1Digit 7Segment </h2>
+        <img src="schema/7 seg esp.png" alt="7 Segment Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>The 5161AS is a single-digit 7-segment LED display commonly used to show numeric values (0–9). It has 7 segments (A–G) and a decimal point (DP).</p>
+        
+        <h3>Wiring</h3>
+        <ul>
+            <li>A → Digital Pin</li>
+            <li>B → Digital Pin</li>
+            <li>C → Digital Pin</li>
+            <li>D → Digital Pin</li>
+            <li>E → Digital Pin</li>
+            <li>F → Digital Pin</li>
+            <li>G → Digital Pin</li>
+            <li>Common Cathode → Digital Pin</li>    
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+// Segment pins
+#define A 13
+#define B 12
+#define C 14
+#define D 27
+#define E 26
+#define F 25
+#define G 33
+#define DP 32
+
+void setup() {
+  // Set segment pins as OUTPUT
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  pinMode(DP, OUTPUT);
+}
+
+void loop() {
+  // Display number 7 (A, B, C segments ON)
+  digitalWrite(A, HIGH);
+  digitalWrite(B, HIGH);
+  digitalWrite(C, HIGH);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
+  digitalWrite(DP, LOW);  // Decimal point OFF
+
+  // Hold this number
+  delay(1000);
+}
+
+            </pre>
+            <div class="activity-section">
+                <h3>Activity Challenge</h3>
+                <div id="sevenseg-activity" class="activity-content"></div>
+                <button class="btn-generate" onclick="generateActivity('sevenseg')">Generate Activity</button>
+            </div>
+        </div>
+    </div>
+ </div>
+
+ <!-- Water Sensor -->
+  <div id="water-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Water Sensor</h2>
+        <img src="schema/water esp.jpg" alt="Water Sensor Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>A water sensor detects the presence of water or measures water level by sensing conductivity between exposed traces.</p>
+
+        <h3>Wiring</h3>
+        <ul>
+            <li>VCC → 3.3V</li>
+            <li>GND → GND</li>
+            <li>DO → Digital Pin</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+#define WATER_SENSOR_PIN 23
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(WATER_SENSOR_PIN, INPUT);
+}
+
+void loop() {
+  int waterDetected = digitalRead(WATER_SENSOR_PIN);
+
+  if (waterDetected == LOW) {
+    Serial.println("💧 Water Detected!");
+  } else {
+    Serial.println("No Water.");
+  }
+
+  delay(500);
+}
+            </pre>
+            <div class="activity-section">
+                <h3>Activity Challenge</h3>
+                <div id="water-activity" class="activity-content"></div>
+                <button class="btn-generate" onclick="generateActivity('water')">Generate Activity</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<!-- LED Matrix -->
+ <div id="matrix-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>LED Matrox (8x8x4)</h2>
+        <img src="schema/esp32-led-matrix-wiring-diagram.jpg" alt="LED Matrix 32x8 Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>An LED Matrix is a grid of LEDs (like 8×8, 5×7, or 16×16) arranged in rows and columns.
+You control LEDs by switching their corresponding row and column lines — either directly with GPIO pins or (more commonly) via a driver IC like MAX7219 to massively simplify wiring.</p>
+        
+        <h3>Wiring</h3>
+        <ul>
+            <li>VCC → 3.3V</li>
+            <li>GND → GND</li>
+            <li>DIN → Digital Pin</li>
+            <li>CS(LOAD) → Digital Pin</li>
+            <li>CLK → Digital Pin</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+#include <MD_Parola.h>
+#include <MD_MAX72xx.h>
+
+#define HARDWARE_TYPE MD_MAX72XX::FC16_HW
+#define MAX_DEVICES 4 // 4 blocks
+#define CS_PIN 21
+
+// create an instance of the MD_Parola class
+MD_Parola ledMatrix = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
+
+void setup() {
+  ledMatrix.begin();         // initialize the LED Matrix
+  ledMatrix.setIntensity(15); // set the brightness of the LED matrix display (from 0 to 15)
+  ledMatrix.displayClear();  // clear LED matrix display
+}
+
+void loop() {
+  ledMatrix.setTextAlignment(PA_LEFT);
+  ledMatrix.print("Left"); // display text
+  delay(2000);
+
+  ledMatrix.setTextAlignment(PA_CENTER);
+  ledMatrix.print("Center"); // display text
+  delay(2000);
+
+  ledMatrix.setTextAlignment(PA_RIGHT);
+  ledMatrix.print("Right"); // display text
+  delay(2000);
+
+  ledMatrix.setTextAlignment(PA_CENTER);
+  ledMatrix.setInvert(true);
+  ledMatrix.print("Invert"); // display text inverted
+  delay(2000);
+
+  ledMatrix.setInvert(false);
+  ledMatrix.print(1234); // display number
+  delay(2000);
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="matrix-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('matrix')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+ </div>
+
+ <!-- Button -->
+ <div id="button-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Tactile Button</h2>
+        <img src="schema/BUTTON-wire.png" alt="Button Wiring" class="modal-img">
+        
+        <h3>Description</h3>
+        <p>A Tactile Push Button is a simple digital input device. It completes or breaks a circuit when pressed, typically connecting a pin to GND or VCC.
+In most cases, it's wired with a pull-up resistor so the pin reads HIGH when unpressed and LOW when pressed.</p>
+        
+        <h3>Wiring</h3>
+        <ul>
+            <li>Terminal 1 → Digital Pin</li>
+            <li>Terminal 2 → GND</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+#define BUTTON_PIN 21
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+}
+
+void loop() {
+  int buttonState = digitalRead(BUTTON_PIN);
+  Serial.println(buttonState);
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="button-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('button')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+ </div>
+
+ <!-- Potentiometer -->
+    <div id="pot-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Potentiometer</h2>
+            <img src="schema/poten esp.jpg" alt="Potentiometer Wiring" class="modal-img">
+
+            <h3>Description</h3>
+            <p>A potentiometer is a variable resistor that outputs an analog voltage between 0V and the supply voltage (3.3V for ESP32) based on its shaft rotation.
+Perfect for adjusting values like brightness, speed, or volume in projects.</p>
+            
+            <h3>Wiring</h3>
+                <ul>
+                    <li>VCC → 3.3V</li>
+                    <li>GND → GND</li>
+                    <li>Middle Pin → Digital Pin</li>
+                </ul>
+
+            <h3>Example Code</h3>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre>#define POT_PIN 34
+
+void setup() {
+  Serial.begin(115200);
+}
+
+void loop() {
+  int potValue = analogRead(POT_PIN);   
+  Serial.print("Potentiometer Value: ");
+  Serial.println(potValue);
+  delay(300);
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="potentio-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('potentio')">Generate Activity</button>
+</div>
+            </div>
+        </div>
+    </div>
+
+<!-- IR Receiver Module -->
+<div id="irr-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>IR Receiver Module (KY-022)</h2>
+        <img src="schema/ir ir esp.jpg" alt="IR Receiver Wiring" class="modal-img">
+        
+        <h3>Description</h3>
+        <p>The KY-022 is an IR (infrared) receiver module that detects signals from an IR remote control (typically 38kHz frequency).
+It converts the received infrared pulses into a digital signal for the microcontroller to interpret.<p>
+
+        <h3>Wiring</h3>
+        <ul>
+            <li>Signal → Digital Pin</li>
+            <li>VCC → 3.3V</li>
+            <li>GND → GND</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+#include &lt;IRrecv.h&gt;
+#include &lt;IRutils.h&gt;
+
+#define IR_RECEIVE_PIN 23
+
+IRrecv irrecv(IR_RECEIVE_PIN);
+decode_results results;
+
+void setup() {
+  Serial.begin(115200);
+  irrecv.enableIRIn();  // Start the receiver
+}
+
+void loop() {
+  if (irrecv.decode(&amp;results)) {
+    Serial.print("IR Code Received: ");
+    Serial.println(results.value, HEX); // Print received code in HEX
+    irrecv.resume();  // Ready to receive next code
+  }
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="irrec-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('irrec')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- Piezo Buzzer -->
+<div id="buzzer-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Piezo Buzzer</h2>
+        <img src="schema/buzzer.jpg" alt="Piezo Buzzer Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>A Piezo Buzzer is a small speaker-like component that creates sound when an electrical signal is applied to it.</p>
+
+        <h3>Wiring</h3>
+        <ul>
+            <li>Positive (+) → Digital Pin</li>
+            <li>Negative (-) → GND</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>#define BUZZER_PIN 23
+
+void setup() {
+  pinMode(BUZZER_PIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(BUZZER_PIN, HIGH); 
+  delay(500);                     
+  digitalWrite(BUZZER_PIN, LOW);  
+  delay(500);                    
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="Pbuzzer-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('Pbuzzer')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- LED -->
+<div id="led-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Light Emitting Diode(LED)</h2>
+            <img src="schema/Led esp.jpg" alt="LED Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>An LED (Light Emitting Diode) is a simple component that emits light when current flows through it</p>
+
+        <h3>Wiring</h3>
+        <ul>
+            <li>Anode (+) → Digital Pin</li>
+            <li>Cathode (-) → GND</li>
+        </ul>
+        
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+#define LED_PIN 23
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH);  // Turn LED ON
+  delay(500);                   // Wait 500 ms
+  digitalWrite(LED_PIN, LOW);   // Turn LED OFF
+  delay(500);                   // Wait 500 ms
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="leds-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('leds')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- RTC Module -->
+<div id="rtc-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Real-Time Clock Module</h2>
+        <img src="schema/RTC-wire.png" alt="DS1302 RTC Module Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>The DS1302 RTC (Real Time Clock) module keeps track of the current time and date (year, month, day, hour, minute, second) even when the main board is off, thanks to its coin cell backup battery.</p>
+
+        <h3>Wiring</h3>
+        <ul>
+            <li>VCC → 3.3V</li>
+            <li>GND → GND</li>
+            <li>CLK → Digital Pin</li>
+            <li>DAT(I/O) → Digital Pin</li>
+            <li>CE → Digital Pin</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+<pre>
+#include &lt;DS1302.h&gt;
+
+// Create DS1302 RTC object (CE, DAT, CLK)
+DS1302 rtc(5, 19, 18);
+
+void setup() {
+  Serial.begin(115200);
+  rtc.begin();   
+  Serial.println("DS1302 RTC Initialized");
+}
+
+void loop() {
+  // Get current time and date
+  String time = rtc.getTimeStr();
+  String date = rtc.getDateStr();
+  String dow = rtc.getDOWStr();  
+
+  // Print current time, date, and day of the week
+  Serial.print("Date: ");
+  Serial.print(dow);   
+  Serial.print(" ");
+  Serial.print(date);    
+  Serial.print(" -- ");
+  Serial.println(time);  
+
+  delay(1000);  
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="rtcMod-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('rtcMod')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- Header Pins -->
+<div id="header-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Header Pins</h2>
+        <img src="compage/header.jpg" alt="Pin Headers" class="modal-img">
+
+        <h3>Description</h3>
+        <p>Header pins, also known as connector pins or header connectors, are metallic pins used to create electrical and mechanical connections between circuit boards, cables, and components. They act as an interface, allowing you to connect external wiring and components to printed circuit boards (PCBs). Essentially, they provide a standardized way to plug in wires, cables, or other boards to a PCB.</p>
+    </div>
+</div>
+
+<!-- Jumper Wires -->
+<div id="jumper-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Jumper Wires</h2>
+        <img src="compage/jump.jpg" alt="Jumper Wires" class="modal-img">
+
+        <h3>Description</h3>
+        <p>Jumper wires are conductive wires with connectors or pins at each end, used to temporarily connect two points in a circuit without soldering. They are commonly used in breadboards and prototyping to facilitate easy circuit modifications. Jumper wires come in various types, including male-to-male, male-to-female, and female-to-female, each designed for specific connection purposes.</p>
+    </div>
+</div>
+
+<!-- FreeRTOS -->
+<div id="rtos-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>FreeRTOS</h2>
+        <img src="compage/rtos.png" alt="FreeRTOS" class="modal-img">
+
+        <h3>Descriptions</h3>
+        <p>FreeRTOS is an open-source real-time operating system used in embedded devices like the ESP32. It runs behind the scenes to manage multiple tasks—such as reading sensors, connecting to Wi-Fi, or blinking LEDs—so they can happen seemingly at the same time.</p>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre>
+#include &lt;Arduino.h&gt;
+
+#define LED_PIN 2  
+
+void blinkLED(void *parameter) {
+  pinMode(LED_PIN, OUTPUT);
+  while (1) {
+    digitalWrite(LED_PIN, HIGH);   
+    delay(500);                     
+    digitalWrite(LED_PIN, LOW);    
+    delay(500);                     
+  }
+}
+
+void printMessage(void *parameter) {
+  while (1) {
+    Serial.println("FreeRTOS is running!");
+    delay(1000);  
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  xTaskCreate(blinkLED, "Blink LED", 1024, NULL, 1, NULL); 
+  xTaskCreate(printMessage, "Print Message", 1024, NULL, 1, NULL); 
+}
+
+void loop() {
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="freertos-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('freertos')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- Stepper motor -->
+<div id="motor-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h2>Stepper Motor</h2>
+        <img src="schema/stepper esp.jpg" alt="Stepper Motor Wiring" class="modal-img">
+
+        <h3>Description</h3>
+        <p>A stepper motor is a type of brushless DC electric motor that moves in discrete steps. Unlike regular DC motors that spin continuously, a stepper motor divides a full rotation into a number of equal steps. It moves from one position to the next with each electrical pulse it receives.</p>
+
+        <h3>Wiring</h3>
+        <ul>
+            <li>IN1 → Digital Pin</li>
+            <li>IN2 → Digital Pin</li>
+            <li>IN3 → Digital Pin</li>
+            <li>IN4 → Digital Pin</li>
+            <li>VCC → 5V</li>
+            <li>GND → GND</li>
+        </ul>
+
+        <h3>Example Code</h3>
+        <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre>
+#include &lt;Arduino.h&gt;
+
+#define IN1 32
+#define IN2 33
+#define IN3 25
+#define IN4 26
+
+int stepSequence[8][4] = {
+  {1, 0, 0, 1},  
+  {1, 0, 0, 0},  
+  {1, 1, 0, 0},  
+  {0, 1, 0, 0},  
+  {0, 1, 1, 0},  
+  {0, 0, 1, 0},  
+  {0, 0, 1, 1},  
+  {1, 0, 1, 0}   
+};
+
+void setMotorPins(int pin1, int pin2, int pin3, int pin4) {
+  digitalWrite(IN1, pin1);
+  digitalWrite(IN2, pin2);
+  digitalWrite(IN3, pin3);
+  digitalWrite(IN4, pin4);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+}
+
+void loop() {
+  for (int step = 0; step &lt; 8; step++) {
+    setMotorPins(stepSequence[step][0], stepSequence[step][1], stepSequence[step][2], stepSequence[step][3]);
+    delay(100);  
+  }
+}
+</pre>
+<div class="activity-section">
+    <h3>Activity Challenge</h3>
+    <div id="stepmotor-activity" class="activity-content"></div>
+    <button class="btn-generate" onclick="generateActivity('stepmotor')">Generate Activity</button>
+</div>
+        </div>
+    </div>
+</div>
+    <script src="scripts.js"></script>
+</body>
+</html>
