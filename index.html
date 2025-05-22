@@ -460,7 +460,7 @@
             <h3>Wiring</h3>
             <ul>
                 <li>VCC → 3.3V/5V</li>
-                <li>DATA → Digital Pin</li>
+                <li>DATA → Digital Pin (GPIO 2)</li>
                 <li>GND → GND</li>
             </ul>
             
@@ -505,6 +505,12 @@ void loop() {
             <h3>Description</h3>
             <p>Passive infrared sensor detects movement up to 6 meters. Adjustable sensitivity and delay time.</p>
             
+            <h3>Wiring</h3>
+            <ul>
+                <li>VCC → 5V</li>
+                <li>OUT → Digital Pin (GPIO 2)</li>
+                <li>GND → GND</li>
+            </ul>
             <h3>Example Code</h3>
             <div class="code-block">
                 <button class="copy-btn" onclick="copyCode(this)">Copy</button>
@@ -542,6 +548,14 @@ void loop() {
             
             <h3>Description</h3>
             <p>Measures distance from 2cm to 400cm with 3mm accuracy. Uses sound waves to determine distance.</p>
+            
+            <h3>Wiring</h3>
+            <ul>
+                <li>VCC → 5V</li>
+                <li>Trig → Digital Pin (GPIO 9)</li>
+                <li>Echo → Digital Pin (GPIO 10)</li>
+                <li>GND → GND</li>
+            </ul>
             
             <h3>Example Code</h3>
             <div class="code-block">
@@ -728,28 +742,30 @@ void loop() {
         <h3>Description</h3>
         <p>A flame sensor is a device that detects the presence of a flame or fire. It typically works by sensing infrared light emitted by a flame. It’s commonly used in fire detection systems, safety equipment, and some robotics projects to detect fire hazards.</p>
 
+        <h3>Wiring</h3>
+        <ul>
+            <li>VCC → 5V</li>
+            <li>GND → GND</li>
+            <li>D0 → Digital Pin (GPIO 2)</li>
+
         <h3>Example Code</h3>
         <div class="code-block">
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
             <pre>
-int flameSensorPin = A0; 
-int flameValue = 0;
+#define DO_PIN 2
 
 void setup() {
-  Serial.begin(9600); 
-  pinMode(flameSensorPin, INPUT);
+  Serial.begin(9600);
+  pinMode(DO_PIN, INPUT);
 }
 
 void loop() {
-  flameValue = analogRead(flameSensorPin);  
+  int flame_state = digitalRead(DO_PIN);
 
-  if (flameValue &lt; 100) { 
-    Serial.println("Flame detected!");
-  } else {
-    Serial.println("No flame.");
-  }
-
-  delay(500);  
+  if (flame_state == HIGH)
+    Serial.println("No flame dected => The fire is NOT detected");
+  else
+    Serial.println("Flame dected => The fire is detected");
 }
             </pre>
             <div class="activity-section">
@@ -775,14 +791,14 @@ void loop() {
         <h3>Wiring</h3>
         <ul>
             <li>LDR leg 1 → 5V</li>
-            <li>LDR leg 2 → Analog Pin </li>
+            <li>LDR leg 2 → Analog Pin (GPIO 2)</li>
             <li>10KΩ resistor between LDR leg 2 and GND</li>
         </ul>
         
         <h3>Example Code</h3>
         <div class="code-block">
             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-            <pre>int ldrPin = A0;
+            <pre>int ldrPin = 2;
 
 void setup() {
   Serial.begin(9600);
@@ -817,27 +833,33 @@ void loop() {
         <ul>
             <li>VCC → 5V</li>
             <li>GND → GND</li>
-            <li>OUT → Digital Pin for digital output</li>
-            <li>A0 → Analog Pin for analog output</li>
+            <li>OUT → Digital Pin (GPIO 2)</li>
         </ul>
         
         <h3>Example Code</h3>
         <div class="code-block">
             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-            <pre>int soundPin = A0;
-int threshold = 500; // Adjust based on sensitivity
+            <pre>#define SENSOR_PIN 2
+
+int lastState = HIGH;  
+int currentState;      
 
 void setup() {
   Serial.begin(9600);
+  pinMode(SENSOR_PIN, INPUT);
 }
 
 void loop() {
-  int soundValue = analogRead(soundPin);
-  if(soundValue > threshold) {
-    Serial.println("Loud sound detected!");
-  }
-  delay(100);
-}</pre>
+  currentState = digitalRead(SENSOR_PIN);
+
+  if (lastState == HIGH && currentState == LOW)
+    Serial.println("The sound has been detected");
+  else if (lastState == LOW && currentState == HIGH)
+    Serial.println("The sound has disappeared");
+
+  lastState = currentState;
+}
+</pre>
 <div class="activity-section">
     <h3>Activity Challenge</h3>
     <div id="sound-activity" class="activity-content"></div>
@@ -861,8 +883,8 @@ void loop() {
         <ul>
             <li>GND → GND</li>
             <li>VCC → 5V</li>
-            <li>SDA → SDA (A4 on Uno)</li>
-            <li>SCL → SCL (A5 on Uno)</li>
+            <li>SDA → SDA (A4 on Uno)(GPIO 21 on ESP32)</li>
+            <li>SCL → SCL (A5 on Uno)(GPIO 22 on ESP32)</li>
         </ul>
         
         <h3>Example Code</h3>
@@ -1435,9 +1457,9 @@ You control LEDs by switching their corresponding row and column lines — eithe
         <ul>
             <li>VCC → 3.3V</li>
             <li>GND → GND</li>
-            <li>DIN → Digital Pin</li>
-            <li>CS(LOAD) → Digital Pin</li>
-            <li>CLK → Digital Pin</li>
+            <li>DIN → Digital Pin (GPIO 23)</li>
+            <li>CS(LOAD) → Digital Pin (GPIO 21)</li>
+            <li>CLK → Digital Pin (GPIO 18)</li>
         </ul>
 
         <h3>Example Code</h3>
